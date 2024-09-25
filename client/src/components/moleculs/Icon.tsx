@@ -1,12 +1,12 @@
 
 type IconProps = {
-    styles?: string;
-    imgUrl?: string;
-    isActive?: string;
-    name?: string;
-    disabled?: boolean;
-    handleClick?: any;
-  };
+  styles?: string;
+  imgUrl?: string;
+  isActive?: string;
+  name?: string;
+  disabled?: boolean;
+  handleClick?: any;
+};
   
 export const Icon: React.FC<IconProps> = ({ styles, imgUrl, isActive, name, disabled, handleClick }) => {
   return (

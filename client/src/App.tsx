@@ -2,7 +2,7 @@ import { ConnectButton } from "thirdweb/react";
 import thirdwebIcon from "./thirdweb.svg";
 import { client } from "./client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Home } from "./pages";
+import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages";
 import Sidebar from "./components/atoms/Sidebar";
 import Navbar from "./components/atoms/Navbar";
 
@@ -17,6 +17,10 @@ const App: React.FC = () => {
           <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/create-campaign" element={<CreateCampaign/>} />
+              <Route path="/campaign-details/:id" element={<CampaignDetails/>} />
+
             </Routes>
         </div>
       </div>

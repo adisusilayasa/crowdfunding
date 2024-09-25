@@ -16,7 +16,7 @@ const Sidebar: React.FC = () => {
       <div className='flex-1 flex flex-col justify-between items-center bg-[#1c1c24] rounded-[20px] w-[76px] py-4 mt-12'>
         <div className='flex flex-col justify-center items-center gap-3'>
           {navLinks.map((link) => (
-            <Link key={link.name}  className={`w-full flex justify-center items-center ${link.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}>
+            <Link to={link.link} key={link.name}  className={`w-full flex justify-center items-center ${link.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}>
               <Icon isActive={isActive}
                 {...link}
                 handleClick={()=>{
