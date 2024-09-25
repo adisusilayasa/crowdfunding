@@ -3,8 +3,8 @@ import thirdwebIcon from "./thirdweb.svg";
 import { client } from "./client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
+import Sidebar from "./components/atoms/Sidebar";
+import Navbar from "./components/atoms/Navbar";
 
 const App: React.FC = () => {
   return (

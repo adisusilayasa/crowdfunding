@@ -11,7 +11,6 @@
   "dependencies": {
     "react": "^18.3",
     "react-dom": "^18.3",
-    "react-router-dom": "^6.26.2",
     "thirdweb": "^5"
   },
   "devDependencies": {
@@ -25,6 +24,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.47",
+    "react-router-dom": "^6.26.2",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.2.2",
     "vite": "^4"
