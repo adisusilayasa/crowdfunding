@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
-import { menu, search, thirdweb } from '../../assets'
+import { logo, menu, search, thirdweb } from '../../assets'
 import { Link, useNavigate } from 'react-router-dom'
 import CustomButton from '../moleculs/CustomButton'
 import { navLinks } from '../../constants'
 import { Icon } from '../moleculs/Icon'
+import { useStateContext } from '../../context'
+import { metamaskWallet } from '@thirdweb-dev/react';
+import { LineaSepolia} from "@thirdweb-dev/chains";
 
 function Navbar() {
   const navigate = useNavigate()
   const [isActive, setIsActive] = useState('dashboard')
   const [toggleDrawer, setToggleDrawer] = useState(false)
-  const address = '0x.....'
+  const { connect, address } = useStateContext()
+  const metamaskConfig = metamaskWallet();
+  const connectOptions = {chainId: LineaSepolia.chainId}
+
   return (
     <div className='flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6'>
       <div className='lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#1c1c24] rounded-[100px]'>
@@ -25,7 +31,7 @@ function Navbar() {
           styles={address? 'bg-[#1dc071': 'bg-[#8c6dfd]'}
           handleClick={()=>{
             if(address) navigate('create-campaign')
-            else 'connect()'
+            else connect(metamaskConfig, connectOptions)
           }}
         />
 
@@ -39,7 +45,7 @@ function Navbar() {
       {/* Small Screen Navigation */}
       <div className='relative flex items-center justify-between sm:hidden'>
         <div className='w-[40px] h-[40px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer'>
-          <img src={thirdweb} alt='user' className='w-[60%] h-[60%] object-contain'/>
+          <img src={logo} alt='user' className='w-[60%] h-[60%] object-contain'/>
         </div>
         <img 
           src={menu} 
@@ -77,7 +83,7 @@ function Navbar() {
               styles={address? 'bg-[#1dc071': 'bg-[#8c6dfd]'}
               handleClick={()=>{
                 if(address) navigate('create-campaign')
-                else 'connect()'
+                else connect(metamaskConfig, connectOptions)
               }}
             />
           </div>

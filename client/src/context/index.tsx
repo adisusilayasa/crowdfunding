@@ -1,5 +1,5 @@
 import React, { useContext, createContext, ReactNode } from 'react';
-import { useAddress, useContract, useConnect, useContractWrite } from '@thirdweb-dev/react';
+import { useAddress, useContract, useConnect, metamaskWallet, useContractWrite } from '@thirdweb-dev/react';
 import  { utils }  from 'ethers';
 import { SmartContract } from '@thirdweb-dev/sdk';
 import { BigNumber } from 'ethers';
