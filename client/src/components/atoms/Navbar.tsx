@@ -18,7 +18,7 @@ function Navbar() {
           <img src={search} alt='search' className='w-[15px] h-[15px] object-contain' />
         </div>
       </div>
-      <div className='sm:flex hidden flex-row justify-end gap-4'>
+      <div className='flex-row justify-end hidden gap-4 sm:flex'>
         <CustomButton 
           btnType='button'
           title={address? 'Create a campaign':'Connect'}
@@ -37,7 +37,7 @@ function Navbar() {
       </div>
 
       {/* Small Screen Navigation */}
-      <div className='sm:hidden flex justify-between items-center relative'>
+      <div className='relative flex items-center justify-between sm:hidden'>
         <div className='w-[40px] h-[40px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer'>
           <img src={thirdweb} alt='user' className='w-[60%] h-[60%] object-contain'/>
         </div>
@@ -50,7 +50,8 @@ function Navbar() {
         <div className={`absolute top-[60px] right-0 left-0 bg-[#1c1c24] z-10 shadow-secondary py-4 ${!toggleDrawer ? '-translate-y-[100vh]':'translate-y-0'} transition-all duration-700`}>
           <ul className='mb-4'>
             {navLinks.map((link) => (
-              <li 
+              <li
+              key={link.name}
               className={`flex p-4 ${isActive === link.name && 'bg-[#3a3a43]'}`}
               onClick={()=>{
                 setIsActive(link.name)
