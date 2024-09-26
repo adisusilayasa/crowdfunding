@@ -23,7 +23,7 @@ interface CampaignForm {
   image: string;
 }
 
-interface Campaign {
+export interface Campaign {
   owner: string;
   title: string;
   description: string;
@@ -34,7 +34,7 @@ interface Campaign {
   pId: number;
 }
 
-interface Donation {
+export interface Donation {
   donator: string;
   donation: string;
 }
