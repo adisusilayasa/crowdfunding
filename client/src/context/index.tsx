@@ -44,7 +44,8 @@ const StateContext = createContext<StateContextType | undefined>(undefined);
 
 // Create a provider component
 export const StateContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { contract } = useContract('0xCEF6d7537c77084402329fee9e0bB64622F115b8');
+  const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS;
+  const { contract } = useContract(contractAddress);
   const { mutateAsync: createCampaign } = useContractWrite(contract as SmartContract, 'createCampaign');
 
   const address = useAddress();
@@ -71,7 +72,6 @@ export const StateContextProvider: React.FC<{ children: ReactNode }> = ({ childr
 
   const getCampaigns = async (): Promise<Campaign[]> => {
     const campaigns = await contract?.call('getCampaigns');
-
     const parsedCampaigns = campaigns.map((campaign: any, i: number) => ({
       owner: campaign.owner,
       title: campaign.title,
@@ -88,9 +88,7 @@ export const StateContextProvider: React.FC<{ children: ReactNode }> = ({ childr
 
   const getUserCampaigns = async (): Promise<Campaign[]> => {
     const allCampaigns = await getCampaigns();
-
     const filteredCampaigns = allCampaigns.filter((campaign) => campaign.owner === address);
-
     return filteredCampaigns;
   };
 
