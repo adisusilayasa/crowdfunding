@@ -1,6 +1,6 @@
 # Crowdfunding DApp
 
-This is a decentralized crowdfunding application built using React, Vite, and TypeScript. The application leverages Web3 technologies to ensure that funds are directly transferred to the creator's wallet without any fees. The smart contracts are deployed using Thirdweb and written in Solidity. MetaMask is used as the wallet for transactions.
+This is a decentralized crowdfunding application built using [React](https://reactjs.org/), [Vite](https://vitejs.dev/), and [TypeScript](https://www.typescriptlang.org/). The application leverages [Web3] technologies to ensure that funds are directly transferred to the creator's wallet without any fees. The smart contracts are deployed using [Thirdweb](https://thirdweb.com/) and written in [Solidity](https://soliditylang.org/). [MetaMask](https://metamask.io/) is used as the wallet for transactions.
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@ This is a decentralized crowdfunding application built using React, Vite, and Ty
 - [Installation](#installation)
 - [Usage](#usage)
 - [Smart Contract](#smart-contract)
+- [Deploying the Smart Contract](#deploying-the-smart-contract)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -24,7 +25,7 @@ This is a decentralized crowdfunding application built using React, Vite, and Ty
 
 Before you begin, ensure you have met the following requirements:
 
-- Node.js and npm installed
+- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed
 - MetaMask extension installed in your browser
 - A Thirdweb account for deploying smart contracts
 - Basic understanding of Solidity and smart contracts
@@ -97,6 +98,40 @@ contract Crowdfunding {
     }
 }
 ```
+
+## Deploying the Smart Contract
+
+To deploy the smart contract to Thirdweb, follow these steps:
+
+1. **Install Thirdweb CLI**: If you haven't already, install the Thirdweb CLI globally:
+
+    ```bash
+    npm install -g @thirdweb-dev/cli
+    ```
+
+2. **Login to Thirdweb**: Authenticate your CLI with Thirdweb:
+
+    ```bash
+    thirdweb login
+    ```
+
+3. **Create a Project**: If you don't have a project yet, create one on the Thirdweb dashboard and note the project ID.
+
+4. **Deploy the Contract**: Navigate to the directory containing your smart contract and deploy it:
+
+    ```bash
+    thirdweb deploy
+    ```
+
+    Follow the prompts to select your project and network (e.g., Ethereum, Polygon).
+
+5. **Update Environment Variables**: After deploying, update your `.env` file with the deployed contract address:
+
+    ```plaintext
+    VITE_CONTRACT_ADDRESS=your_deployed_contract_address
+    ```
+
+6. **Integrate with Frontend**: Ensure your frontend code is set up to interact with the deployed contract using the contract address from the `.env` file.
 
 ## Contributing
 
