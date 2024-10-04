@@ -36,7 +36,7 @@ Before you begin, ensure you have met the following requirements:
 
     ```bash
     git clone https://github.com/adisusilayasa/crowdfunding.git
-    cd crowdfunding-dapp
+    cd crowdfunding
     ```
 
 2. Install the dependencies:
